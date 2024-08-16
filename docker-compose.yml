@@ -1,0 +1,17 @@
+services:
+  nginx:
+    image: qajuda/vulneravel-frontend
+    container_name: vulneravel_frontend
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+  backend:
+    image: qajuda/vulneravel
+    container_name: vulneravel_api
+    ports:
+      - "8000:8000"
